@@ -1,0 +1,13 @@
+{
+  "name": "songs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local web player for the songs folder: browse by date, random, notes, marks.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

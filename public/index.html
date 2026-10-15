@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>songs</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%23f6c453'%3E%E2%99%AA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">♪ songs <span id="count" class="n"></span></div>
+  <input id="search" type="search" placeholder="Search names, comments, dates…  (press / )" autocomplete="off" spellcheck="false">
+  <div class="seg" id="view">
+    <button type="button" data-view="all">All</button>
+    <button type="button" data-view="marked">★ Marked <span id="marked-count" class="n"></span></button>
+  </div>
+  <select id="sort" title="Sort order">
+    <option value="newest">Newest first</option>
+    <option value="oldest">Oldest first</option>
+    <option value="name">Name A–Z</option>
+  </select>
+  <button type="button" id="random" class="btn accent" title="Play a random song (R)">⤮ Random</button>
+  <button type="button" id="rescan" class="btn" title="Rescan the songs folder">⟳</button>
+  <button type="button" id="admin" class="btn" title="Enter the admin key" hidden>🔑</button>
+</header>
+
+<div class="body">
+  <nav id="tree" class="tree" aria-label="Browse by year and month"></nav>
+  <main class="list-wrap">
+    <button type="button" id="prev" class="edge left" title="Previous (←)">‹</button>
+    <div id="list" class="list"></div>
+    <button type="button" id="next" class="edge right" title="Next (→)">›</button>
+  </main>
+</div>
+
+<footer class="player">
+  <div class="np">
+    <div id="np-title" class="np-title">Nothing playing</div>
+    <div id="np-sub" class="np-sub muted">Pick a song, or hit Random</div>
+  </div>
+  <button type="button" id="p-mark" class="star-big" title="Mark / unmark this song (M)">☆</button>
+  <div class="controls">
+    <button type="button" id="p-prev" class="ctl" title="Previous (←)">‹</button>
+    <button type="button" id="p-play" class="ctl play" title="Play / pause (Space)">▶</button>
+    <button type="button" id="p-next" class="ctl" title="Next (→)">›</button>
+    <button type="button" id="p-random" class="ctl" title="Random (R)">⤮</button>
+    <button type="button" id="p-shuffle" class="ctl toggle" title="When a song ends, play a random one instead of the next">shuffle</button>
+    <audio id="audio" controls preload="metadata"></audio>
+  </div>
+  <section class="comments">
+    <button type="button" id="c-toggle" class="c-toggle"><span id="c-title">Comments</span><span id="c-chev" class="n">▾</span></button>
+    <div id="c-body" class="c-body">
+      <div id="c-list" class="c-list"></div>
+      <form id="c-form" class="c-form" autocomplete="off">
+        <input id="c-name" maxlength="32" placeholder="name (optional)">
+        <input id="c-website" name="website" class="hp" tabindex="-1" aria-hidden="true" autocomplete="off">
+        <textarea id="c-text" rows="1" maxlength="600" placeholder="Leave a comment… (Enter to post)" disabled></textarea>
+        <button type="submit" id="c-post" class="btn accent" disabled>Post</button>
+      </form>
+      <div id="c-status" class="c-status muted"></div>
+    </div>
+  </section>
+</footer>
+
+<div id="toast" class="toast" hidden></div>
+<script src="/app.js"></script>
+</body>
+</html>
